@@ -1,0 +1,10 @@
+<h1>Détail de l'activité n°{{ id }} :</h1>
+<ol>
+  <li>
+    Nom de l'activité :
+    <input type="text" name="title" [(ngModel)]="title" />
+  </li>
+</ol>
+
+<button class="btn btn-danger" (click)="supprimeElem()">Supprimer</button>
+<button class="btn btn-info" (click)="modifElem()">Sauvegarder</button>

@@ -1,0 +1,24 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>Un élément de liste</p>
+  </div>
+  <div class="col">
+    <p>Ma liste d'éléments ({{ activiteService.nbItems }})</p>
+  </div>
+</div>
+
+<div class="container color-light">
+  <div class="col">
+    <button class="turbo-btn" (click)="rendreFormActif()">Ajouter</button>
+    @if (isFormActive) {
+        <input type="text" class="txt" name="jsp" placeholder="..." [(ngModel)]="activiteService.objectifText" animate.enter="drop-in" animate.leave="fall-out">
+        <p animate.enter="wobble-in" animate.leave="poof-out">{{ activiteService.objectifText }}</p>
+        <input type="submit" class="btn" [class.btn-success]="activiteService.objectifText.length > 0" [value]="btnText" (click)="activiteService.ajoutItem()" animate.enter="spin-in" animate.leave="spin-out">
+    }
+  </div>
+  <div class="col">
+    @for (objectif of activiteService.objectifs; track objectif) {
+      <p class="life-container" animate.enter="animation-ajout" [routerLink]="['/consultAct', $index]">{{ objectif }}</p>
+    }
+  </div>
+</div>

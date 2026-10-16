@@ -1,0 +1,148 @@
+.container {
+  display: grid;
+  grid-template-columns: 50% auto;
+}
+
+.col {
+  padding: .4em 1.3em;
+}
+
+.color-dark {
+  background: #2885C4;
+}
+.color-light {
+  background: #57B3F1;
+}
+
+.turbo-btn {
+  background-color: #3b5fc7;
+  color: #dbe4ff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 36px;
+  font-size: 0.95rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.turbo-btn:hover {
+  background-color: #324fa8;
+}
+
+.turbo-btn:active {
+  transform: scale(0.97);
+}
+
+input.txt{
+  border: 0;
+  padding: 1em;
+  width: 80%;
+  margin-bottom: 2em;
+}
+
+input.btn{
+  border: 0;
+  display: block;
+  padding: 1em 3em;
+  background: rgba(230, 35, 10, 0.726);
+  color: rgb(229, 239, 247);
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+
+input.btn.btn-success {
+  background: #7ac09a;
+  transition: 0.5s;
+}
+
+input.btn.btn-success:hover {
+  background: #345140;
+  transition: 0.5s;
+}
+
+
+.life-container{
+  background: #3FA0E1;
+  padding: .5em;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* ANIMATIONS */
+
+.animation-ajout {
+  animation: slide-fade 1s;
+}
+
+@keyframes slide-fade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    background-color: #7ac09a;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    background: #3FA0E1;
+  }
+}
+
+/* ---------- INPUT : tombe et rebondit / tombe et disparaît ---------- */
+.drop-in {
+  animation: drop-in 0.7s cubic-bezier(.3, 1.6, .5, 1) both;
+}
+@keyframes drop-in {
+  from { opacity: 0; transform: translateY(-80px) rotate(-6deg); }
+  to   { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+.fall-out {
+  animation: fall-out 0.5s ease-in forwards;
+}
+@keyframes fall-out {
+  to { opacity: 0; transform: translateY(80px) rotate(8deg); }
+}
+
+/* ---------- TEXTE : zoom qui tremble / explose en nuage ---------- */
+.wobble-in {
+  animation: wobble-in 0.8s ease-out 0.15s both;
+}
+@keyframes wobble-in {
+  0%   { opacity: 0; transform: scale(0); }
+  50%  { opacity: 1; transform: scale(1.3) rotate(-8deg); }
+  65%  { transform: scale(0.9) rotate(6deg); }
+  80%  { transform: scale(1.05) rotate(-3deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+.poof-out {
+  animation: poof-out 0.5s ease-in forwards;
+}
+@keyframes poof-out {
+  30%  { transform: scale(1.2); }
+  100% { opacity: 0; transform: scale(0) rotate(180deg); filter: blur(6px); }
+}
+
+/* ---------- BOUTON : arrive en tournant / repart en tournant ---------- */
+.spin-in {
+  animation: spin-in 0.8s cubic-bezier(.2, 1.4, .4, 1) 0.3s both;
+}
+@keyframes spin-in {
+  from { opacity: 0; transform: rotate(-360deg) scale(0); }
+  to   { opacity: 1; transform: rotate(0) scale(1); }
+}
+
+.spin-out {
+  animation: spin-out 0.5s ease-in forwards;
+}
+@keyframes spin-out {
+  to { opacity: 0; transform: rotate(360deg) scale(0); }
+}
+
+/* Respect des utilisateurs sensibles aux animations */
+@media (prefers-reduced-motion: reduce) {
+  .drop-in, .fall-out, .wobble-in, .poof-out, .spin-in, .spin-out {
+    animation: none;
+  }
+}
